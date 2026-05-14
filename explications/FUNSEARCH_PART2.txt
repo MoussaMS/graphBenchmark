@@ -1,0 +1,85 @@
+Partie 2 — FunSearch (explication pour rapport)
+=============================================
+
+Résumé
+------
+FunSearch est un algorithme évolutionnaire destiné à optimiser des fonctions
+de score heuristiques utilisées par le moteur de recherche (`searcher.py`) afin
+d'augmenter le nombre de contre-exemples trouvés et réduire le temps moyen.
+
+Objectif du test fourni
+----------------------
+Commande testée :
+
+```
+python3 validate_funsearch.py --subset 7 --generations 2 --time_per_conj 4 --sample_size 7 --full_eval_interval 2 --ensemble_size 3
+```
+
+- `--subset 7` : on travaille sur les 7 premières conjectures du benchmark.
+- `--generations 2` : l'algorithme s'exécute pendant 2 générations (court test).
+- `--time_per_conj 4` : chaque appel `search` peut utiliser jusqu'à 4 secondes.
+- `--sample_size 7` : évaluation sur un sous-ensemble de 7 conjectures (ici l'ensemble entier).
+- `--full_eval_interval 2` : toutes les 2 générations, les meilleurs candidats sont évalués sur tout le sous-ensemble.
+- `--ensemble_size 3` : à la fin, on construit un ensemble composé des 3 meilleurs heuristiques.
+
+Étapes observées et leur signification
+--------------------------------------
+1) Baseline
+   - Le script exécute d'abord la heuristique générique (baseline) sur le
+     sous-ensemble pour obtenir un point de référence (nombre de contre-exemples
+     trouvés et temps moyen).
+
+2) FunSearch (phase d'entraînement)
+   - Population : une collection de `HeuristicCandidate` (poids pour chaque
+     invariant). Par défaut la population fait 16 individus.
+   - Évaluation : pour chaque candidat on calcule une `fitness` en lançant
+     plusieurs exécutions de `search` (une par conjecture du sous-ensemble
+     ou de l'échantillon). Le score combine : récompense pour les trouvailles
+     (+1000 proportionnellement au nombre trouvé) et pénalité liée au temps.
+   - Génération : tri par `fitness`, élitisme (les meilleurs survivent), puis
+     reproduction par mutation pour remplir la population suivante.
+   - Full-eval : à intervalles réguliers (`--full_eval_interval`) les meilleurs
+     candidats sont réévalués sur l'intégralité du sous-ensemble pour éviter
+     l'overfitting sur l'échantillon.
+
+3) Construction de l'ensemble (ensemble final)
+   - L'archive contient les candidats validés ; on prend les `--ensemble_size`
+     meilleurs pour tester l'ensemble: chaque conjecture est testée séquentiellement
+     par les heuristiques de l'ensemble pendant un temps fractionné.
+
+Explication des sorties affichées
+--------------------------------
+- `[8/16] fitness = 663.29` : c'est le candidat numéro 8 sur 16 évalués dans
+  la génération courante ; `fitness` est le score combiné (plus élevé = meilleur).
+- Statistiques par génération : `Best`, `Average`, `Worst` et `Best weights`
+  (les poids associés aux invariants pour le meilleur candidat).
+
+Interprétation concrète
+-----------------------
+- `fitness` élevé (ex. ~1000) signifie que le candidat trouve beaucoup de
+  contre-exemples rapidement.
+- Un `fitness` négatif indique un candidat médiocre (peu ou pas de trouvailles
+  et/ou temps élevé).
+
+Conseils pour rapport
+---------------------
+- Décrivez l'objectif : optimiser la fonction de score pour augmenter le ratio
+  de contre-exemples trouvés et diminuer le temps moyen.
+- Expliquez les paramètres testés et pourquoi (ex : test court -> `--generations 2`).
+- Mentionnez la trade-off qualité/temps : plus de générations & full-eval → meilleure
+  heuristique mais plus long.
+
+Suggestions pour accélérer (si le temps est critique)
+---------------------------------------------------
+- réduire `--subset`, `--generations`, `--time_per_conj` ; augmenter
+  `--full_eval_interval` pour faire moins de validations complètes.
+- utiliser `--skip_baseline` si vous n'avez pas besoin de la comparaison.
+
+Exemple résumé pour le rapport (phrase prête à coller)
+-----------------------------------------------------
+"FunSearch est un algorithme évolutionnaire qui optimise une fonction de score
+paramétrée par des poids sur des invariants graphiques. Le protocole d'entraînement
+évalue des candidats sur un sous-ensemble de conjectures, sélectionne, mute et
+valide périodiquement les meilleurs sur l'ensemble. La métrique `fitness` combine
+le taux de réussite (contre-exemples trouvés) et la vitesse d'exécution ; ainsi
+un score élevé reflète une heuristique à la fois efficace et rapide." 
