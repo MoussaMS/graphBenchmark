@@ -1,26 +1,34 @@
 """
 benchmark.py
-────────────
-Charge le benchmark depuis un fichier Excel et retourne la liste des conjectures.
+------------
+Load conjectures from the benchmark spreadsheet.
 """
 
 from __future__ import annotations
-import pandas as pd
+
 from typing import List
+
+import pandas as pd
+
 from .conjecture import Conjecture
 
 
 def load_benchmark(path: str) -> List[Conjecture]:
     """
-    Charge toutes les conjectures depuis le fichier Excel.
-    Retourne une liste de Conjecture.
+    Load all conjectures and fail loudly on malformed rows.
     """
     df = pd.read_excel(path)
-    conjectures = []
+    conjectures: List[Conjecture] = []
+    errors = []
     for _, row in df.iterrows():
         try:
-            c = Conjecture(row)
-            conjectures.append(c)
+            conjectures.append(Conjecture(row))
         except Exception as e:
-            print(f"[WARN] Conjecture ignorée (ID={row.get('Conjecture ID', '?')}): {e}")
+            errors.append(f"ID={row.get('Conjecture ID', '?')}: {e}")
+
+    if errors:
+        details = "\n".join(errors[:10])
+        raise RuntimeError(
+            f"{len(errors)} conjecture(s) invalide(s) dans le benchmark.\n{details}"
+        )
     return conjectures

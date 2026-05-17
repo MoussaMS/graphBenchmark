@@ -1,0 +1,72 @@
+{
+  "n_conjectures": 8,
+  "n_found": 0,
+  "total_cost": 960.0,
+  "total_elapsed": 67.43,
+  "details": [
+    {
+      "id": 688,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "]~~~~~~?G?_@?@??_?G?@??C??G??G??C??@???G???_??B???F???F_??Bw???~???F{???^w",
+      "violation": -0.015089,
+      "heuristic": "numeric_gradient"
+    },
+    {
+      "id": 1591,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "gr`KAE?OK?G@_?O?o?A?@_?@??K??A??E???O??K???G??@_???O???o???A???@_???@????K????A????E?????O????K?????G????@_?????O?????o?????A?????@",
+      "violation": -0.05277,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 1917,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "PHi??K_G?AC?G??OO??A??O?",
+      "violation": -0.066123,
+      "heuristic": "simulated_annealing"
+    },
+    {
+      "id": 1919,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "JcW?h?@?G?_",
+      "violation": -0.083312,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 2129,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "NH?KKA_@@?C?@?G??_?",
+      "violation": -0.074597,
+      "heuristic": "simulated_annealing"
+    },
+    {
+      "id": 2131,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "V_G???a@??_G?AAOG_C_?C_?@???O?A???G?A???A???",
+      "violation": -0.048796,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 3191,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "IOOaK?W_?",
+      "violation": -1.957443,
+      "heuristic": "alns"
+    },
+    {
+      "id": 3384,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "A_",
+      "violation": -1.028695,
+      "heuristic": "numeric_gradient"
+    }
+  ]
+}

@@ -131,22 +131,196 @@ For experiments only, it can be enabled explicitly with:
 py main.py --benchmark benchmark/benchmark.xlsx --time_limit 60 --warm_start
 ```
 
-When enabled, `src/searcher.py` saves best known graphs in
-`results/best_graphs.json` and loads them as seeds on later runs.  Official runs
-should omit `--warm_start`.
+When enabled, `src/searcher.py` saves generic warm seeds in
+`results/warm_seed_pool.json` and loads them as seeds on later runs.  Official
+runs should omit `--warm_start`.
 
 ## Verification
 
-Command run:
+Command used for official-style smoke run:
 
 ```powershell
-py main.py --ids 886 1191 1566 --time_limit 30 -v
+py main.py --time_limit 30 -v
 ```
 
-Result:
+## Compliance Hardening (May 2026)
 
-- `886`: found in `1.02s`
-- `1191`: found in `0.37s`
-- `1566`: found in `0.42s`
+This pass focused on strict rule compliance and removal of any borderline logic.
 
-All three are below the requested 10 seconds each.
+### 1) Removed selective conjecture filtering in official runner
+
+- `main.py` no longer exposes `--ids`.
+- All benchmark rows are processed by default in standard runs.
+
+### 2) Replaced warm start keyed by conjecture ID
+
+- Warm start storage is now `results/warm_seed_pool.json`.
+- Seeds are grouped by generic profile buckets (class + invariant families + sign), not by conjecture ID.
+- No `if conjecture.id == ...` behavior is used for returning a pre-registered answer.
+- Warm seeds are decoded and rechecked against the conjecture class before use.
+
+### 3) Added strict final counterexample validation before export
+
+- New module: `src/validation.py`.
+- For each found result, before writing outputs:
+  - class constraints are checked (`connected`, `tree`, `bipartite`, `planar`, `claw_free`);
+  - graph6 encode/decode round-trip is performed;
+  - required invariants (X/Y) are recomputed in strict mode on the decoded graph;
+  - strict violation (`violation > 1e-9`) is enforced.
+- Invalid candidates are downgraded to `NOT FOUND` (cost `120`).
+
+Strict mode is conservative:
+- if a required NP-hard invariant cannot be guaranteed exact beyond a safe size limit, the candidate is rejected.
+
+### 4) Improved invariant reliability
+
+- `proximity` and `remoteness` now use exact distance-profile definitions (min/max average distance), not a closeness/eccentricity proxy.
+- `independent_domination_number` is exact for small graphs (`n <= 20`) via cached maximal-independent-set characterization.
+
+### 5) Extended repair support for additional graph classes
+
+- `src/repair.py` now includes repair paths for:
+  - `bipartite`,
+  - `planar`,
+  - `claw_free`,
+  - combinations with `connected` and `tree`.
+- Repairs preserve simple-graph constraints (no self-loop) and relabel nodes consistently.
+
+### 6) Benchmark loading is now strict
+
+- `src/benchmark.py` no longer silently ignores malformed rows.
+- Any malformed conjecture row raises an explicit error.
+
+## Optimization Pass (May 2026 - Recovery)
+
+This pass targets the regression where many false positives were invalidated and
+the final score/time dropped.
+
+### A) Positive-hit validation moved into search phase
+
+- `src/searcher.py` now validates any candidate with `violation > 0` before
+  declaring `FOUND`.
+- Validation uses `validate_counterexample(...)` and only accepted candidates
+  stop the heuristic.
+- Result: fewer "FOUND then invalidated" loops and better use of search budget.
+
+### B) Session warm-start (generic, no IDs)
+
+- Added in-memory warm buckets per generic profile key
+  (class + family + sign), independent of conjecture ID.
+- Found counterexamples from earlier conjectures become seeds for later
+  conjectures of similar type in the same run.
+- This is generic and still revalidated before acceptance.
+
+### C) Recovery pass for hard unresolved conjectures
+
+- If fast+hard pass still fails and there is enough time left, a short recovery
+  portfolio is launched with restart-heavy heuristics.
+- This improves hard-case coverage without rewriting the full solver.
+
+### D) Retry overhead capped in runner
+
+- In `main.py`, if a found candidate is invalid, the second attempt uses a
+  capped budget instead of consuming almost all remaining time.
+- This keeps total runtime under better control.
+
+## Optimization Pass (May 2026 - Distance/Claw-free hard cases)
+
+This pass targets the remaining hard family without any conjecture-ID logic.
+
+### 1) New generic distance archetype mutations
+
+Added new generic operators in `src/mutations.py`:
+- `broom_refresh`
+- `lollipop_refresh`
+- `barbell_refresh`
+- `turnip_refresh`
+- `tree_pathify`
+- `line_graph_distance_archetype`
+
+These are selected only by graph class and invariant families, not IDs.
+
+### 2) Stronger distance-aware targeting
+
+`targeted_mutation(...)` now routes distance invariants
+(`diam`, `rad`, `proximity`, `remoteness`, `lambda_d`) through dedicated
+distance-shape moves instead of generic perturbations.
+
+### 3) Better seeds for hard families
+
+`src/generator.py` now includes larger and more diverse starts for:
+- connected + distance families,
+- tree + distance families,
+- claw-free + distance families (line-graph distance bases).
+
+### 4) New archetype sweep stage in search
+
+`src/searcher.py` now adds `_archetype_sweep(...)` for unresolved
+distance/domination-heavy conjectures before final recovery.
+
+This stage performs a short, deterministic sweep over curated archetypes and
+distance-aware mutations, and validates positive candidates before acceptance.
+
+### 5) Hard-pass tuning
+
+Distance-sensitive profiles now receive slightly stronger hard-pass budget and
+leader selection in `auto_select(...)`.
+
+### 6) Score tuning (generic)
+
+`src/score.py` reduces size penalty for distance/domination families and
+reinforces directional guidance for domination-vs-distance inequalities.
+
+### 7) Invariant spectral bounds updated
+
+`src/invariants.py` increased safe spectral caps:
+- `MAX_SPECTRAL_N`: 34 -> 40
+- `MAX_DISTANCE_SPECTRAL_N`: 28 -> 36
+
+This improves search signal for distance-spectral conjectures while remaining
+bounded.
+
+## Compliance + Optimization Audit (May 2026 - Current Pass)
+
+This pass was a strict audit of forbidden shortcuts plus targeted search updates.
+
+### Compliance fixes kept
+
+- No conjecture-ID shortcut logic was kept:
+  - no `if conjecture.id == ...` decision,
+  - no `id -> graph6` direct return path.
+- Validation remains strict through `src/validation.py`:
+  - class check,
+  - graph6 roundtrip,
+  - required invariants exact for acceptance,
+  - strict violation `> 1e-9`.
+- `main.py` validates candidates before export (`validate_candidate`).
+
+### Search changes applied
+
+- `src/searcher.py`
+  - stricter NP-hard certifiability guard during search (`n <= STRICT_NP_N` when NP-hard required),
+  - generic in-session warm seeds (bucketed by class/invariant families/sign, never by ID),
+  - added deterministic small-graph atlas probe (`atlas_probe`) for domination-heavy conjectures,
+  - added lightweight refresh of required distance/spectral keys to reduce false-positive guidance.
+
+### Verification run (official protocol)
+
+Command used in this environment:
+
+```powershell
+C:\Users\Mekkiou\AppData\Local\Programs\Python\Python311\python.exe main.py --benchmark benchmark/benchmark.xlsx --time_limit 60 --output results/results_after_opt_v2.xlsx
+```
+
+Result (`results/results_after_opt_v2.json`):
+- Refuted: `79/100`
+- Score total: `2742.68`
+- Total time: `1472.44s`
+
+Reference baseline (`results/results.json`):
+- Refuted: `79/100`
+- Score total: `2610.10`
+- Total time: `1305.11s`
+
+So this pass improves strictness/robustness and keeps refutation count, but does
+not yet improve score/time vs this baseline.

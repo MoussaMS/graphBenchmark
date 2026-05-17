@@ -1,0 +1,24 @@
+{
+  "n_conjectures": 2,
+  "n_found": 1,
+  "total_cost": 120.37,
+  "total_elapsed": 4.69,
+  "details": [
+    {
+      "id": 886,
+      "found": true,
+      "cost": 0.374,
+      "graph6": "Srh\\QmiT\\TIjiiTTtTQijiihTT\\TTQiik",
+      "violation": 75.0,
+      "heuristic": "simulated_annealing"
+    },
+    {
+      "id": 6011,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "Bw",
+      "violation": -0.382609,
+      "heuristic": "numeric_gradient"
+    }
+  ]
+}

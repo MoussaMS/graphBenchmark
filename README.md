@@ -1,4 +1,4 @@
-# GraphBench Challenge — Partie 1
+# GraphBench Challenge
 
 Réfutation automatique de conjectures en théorie des graphes.
 
@@ -79,20 +79,36 @@ automatiquement à n'importe quelle conjecture.
 
 FunSearch est un module d'optimisation par algorithme évolutionnaire qui cherche
 à améliorer la fonction de score utilisée par le moteur de recherche. Le but est
-d'augmenter le nombre de contre-exemples trouvés et de réduire le temps moyen par
-conjecture. Une version détaillée à inclure dans le rapport se trouve dans
+d'augmenter le nombre de contre‑exemples trouvés et de réduire le temps moyen par
+conjecture. Une version détaillée pour le rapport se trouve dans
 `FUNSEARCH_PART2.txt`.
 
 Points clés :
 - Population de `HeuristicCandidate` (poids sur invariants)
 - Évaluation par fitness (récompense pour les trouvailles, pénalité pour le temps)
 - Sélection, mutation, élitisme, et validation complète périodique
-- À la fin on crée un ensemble (`--ensemble_size`) des meilleures heuristiques
+- Validation complète périodique et archive des meilleurs candidats
 
-Exemple d'utilisation rapide (test court) :
+Sorties et exports
+- `results/funsearch_archive.json` : archive finale (poids + fitness)
+- `results/funsearch_archive.md` : même archive en tableau Markdown lisible
+
+Exemples d'utilisation
+- Test rapide (exécute un petit benchmark de validation) :
 ```
-python3 validate_funsearch.py --subset 7 --generations 2 --time_per_conj 4 --sample_size 7 --full_eval_interval 2 --ensemble_size 3
+python3 validate_funsearch.py --subset 7 --generations 2 --time_per_conj 4 \
+            --sample_size 7 --full_eval_interval 2 --ensemble_size 3
 ```
 
-Voir `FUNSEARCH_PART2.txt` pour une explication complète prête à intégrer
-dans votre rapport.
+- Lancer les tests unitaires du dépôt :
+```
+python3 -m unittest discover -v
+```
+
+Notes
+- FunSearch crée automatiquement les fichiers JSON et MD dans `results/` après
+      l'exécution. Vous pouvez consulter `results/funsearch_archive.md` pour une
+      lecture rapide des meilleures heuristiques obtenues.
+
+Voir `FUNSEARCH_PART2.txt` pour une explication complète prête à intégrer dans
+votre rapport.

@@ -1,0 +1,32 @@
+{
+  "n_conjectures": 3,
+  "n_found": 2,
+  "total_cost": 124.92,
+  "total_elapsed": 10.25,
+  "details": [
+    {
+      "id": 886,
+      "found": true,
+      "cost": 0.399,
+      "graph6": "V~~~w?@OG?_@?@??_?G?@??C??G??W??[??N??Bw??^_",
+      "violation": 14.0,
+      "heuristic": "simulated_annealing"
+    },
+    {
+      "id": 6011,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "Bw",
+      "violation": -0.382609,
+      "heuristic": "simulated_annealing"
+    },
+    {
+      "id": 6466,
+      "found": true,
+      "cost": 4.522,
+      "graph6": "U?CWy{^F{~b~F~A?_O_??G?CCO?OAAA????P?G?_",
+      "violation": 0.051302,
+      "heuristic": "simulated_annealing"
+    }
+  ]
+}

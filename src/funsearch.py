@@ -5,6 +5,22 @@ from copy import deepcopy
 import multiprocessing
 from multiprocessing import cpu_count
 from .invariants import compute_invariants
+from functools import lru_cache
+import networkx as nx
+import os
+import json
+
+
+# Module-level cached helper: reconstruct graph from graph6 key and compute requested invariants
+@lru_cache(maxsize=2048)
+def _compute_invariants_for_key(key_bytes: bytes | None, missing_tuple: tuple):
+    try:
+        if key_bytes is None:
+            return {}
+        G = nx.from_graph6_bytes(key_bytes.strip())
+        return compute_invariants(G, required_keys=list(missing_tuple))
+    except Exception:
+        return {}
 
 
 def _search_worker(args):
@@ -13,9 +29,23 @@ def _search_worker(args):
 
     # reconstruire la fonction de score côté worker
     def score_fn(G, invariants, conjecture):
-        # Ensure we have all features available (searcher may compute a small set)
-        if not all(f in invariants for f in FEATURES):
-            invariants = compute_invariants(G, required_keys=FEATURES)
+        # Ensure we have all features available (searcher may compute a small set).
+        # Compute only the missing keys and merge to avoid recomputing everything.
+        missing = [f for f in FEATURES if f not in invariants]
+        if missing:
+            # cache by graph6 + tuple(missing) within this process to reduce work
+            key = None
+            try:
+                H = nx.convert_node_labels_to_integers(nx.Graph(G))
+                key = nx.to_graph6_bytes(H, header=False)
+            except Exception:
+                key = None
+
+            try:
+                extra = _compute_invariants_for_key(key, tuple(sorted(missing)))
+            except Exception:
+                extra = compute_invariants(G, required_keys=missing)
+            invariants.update(extra)
 
         violation = conjecture.violation(invariants)
         score = 10.0 * violation
@@ -70,9 +100,20 @@ class HeuristicCandidate:
         def heuristic_score(G, invariants, conjecture):
 
             # Ensure invariants include required features (searcher may pass a
-            # reduced set for speed). Recompute only when necessary.
-            if not all(f in invariants for f in FEATURES):
-                invariants = compute_invariants(G, required_keys=FEATURES)
+            # reduced set for speed). Compute only missing keys and merge.
+            missing = [f for f in FEATURES if f not in invariants]
+            if missing:
+                try:
+                    H = nx.convert_node_labels_to_integers(nx.Graph(G))
+                    key = nx.to_graph6_bytes(H, header=False)
+                except Exception:
+                    key = None
+
+                try:
+                    extra = _compute_invariants_for_key(key, tuple(sorted(missing)))
+                except Exception:
+                    extra = compute_invariants(G, required_keys=missing)
+                invariants.update(extra)
 
             violation = conjecture.violation(invariants)
 
@@ -360,4 +401,26 @@ def run_funsearch(conjectures,
 
     # Retourner l'archive triée par fitness décroissante
     archive.sort(key=lambda c: c.fitness or -1.0, reverse=True)
+    # Sauvegarder l'archive dans results/ pour réutilisation
+    try:
+        os.makedirs('results', exist_ok=True)
+        out = []
+        for c in archive:
+            out.append({'fitness': c.fitness, 'weights': c.weights})
+        with open(os.path.join('results', 'funsearch_archive.json'), 'w') as f:
+            json.dump(out, f, indent=2)
+        # Écrire aussi une version Markdown lisible
+        md_path = os.path.join('results', 'funsearch_archive.md')
+        try:
+            with open(md_path, 'w') as mf:
+                mf.write('# FunSearch archive\n\n')
+                mf.write('| Rang | Fitness | Weights |\n')
+                mf.write('|---:|---:|:---|\n')
+                for i, c in enumerate(archive, start=1):
+                    w = json.dumps(c.weights, ensure_ascii=False)
+                    mf.write(f'| {i} | {c.fitness:.4f} | {w} |\n')
+        except Exception:
+            pass
+    except Exception:
+        pass
     return archive

@@ -1,0 +1,808 @@
+{
+  "n_conjectures": 100,
+  "n_found": 79,
+  "total_cost": 2742.68,
+  "total_elapsed": 1472.44,
+  "details": [
+    {
+      "id": 886,
+      "found": true,
+      "cost": 0.399,
+      "graph6": "U~~~wC@?G?_@?@??_?G?@??C??W??w??{??^??Fw",
+      "violation": 14.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 980,
+      "found": true,
+      "cost": 0.008,
+      "graph6": "A_",
+      "violation": 0.625,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 981,
+      "found": true,
+      "cost": 0.006,
+      "graph6": "A_",
+      "violation": 0.333333,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1177,
+      "found": true,
+      "cost": 0.005,
+      "graph6": "A_",
+      "violation": 0.333333,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1178,
+      "found": true,
+      "cost": 0.006,
+      "graph6": "A_",
+      "violation": 0.2,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1191,
+      "found": true,
+      "cost": 0.107,
+      "graph6": "SnIiu~qkfx~ySn}b}e{NHz~x~t}nrzmwo",
+      "violation": 0.416584,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1466,
+      "found": true,
+      "cost": 1.962,
+      "graph6": "Or`KAE?OK?G@_?O?o?A?@",
+      "violation": 1.772429,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 1566,
+      "found": true,
+      "cost": 33.521,
+      "graph6": "Zp?GGC@g??_CC???_@??@??C??A??G?O???????G???_??@E?????@????K?",
+      "violation": 1.0,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 1587,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "ZhCGGC@?G?_@?@??_?G?@??C??G??G??C??@???G???_??@???@_???????G",
+      "violation": 3.333333,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 1588,
+      "found": true,
+      "cost": 1.428,
+      "graph6": "[p?GGC@_??_CC???_@??@??C??A??G?O???????G???_??@E?????@????G???@@",
+      "violation": 1.0,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 1600,
+      "found": true,
+      "cost": 1.59,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 0.333333,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 1601,
+      "found": true,
+      "cost": 0.985,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 1.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1708,
+      "found": true,
+      "cost": 0.638,
+      "graph6": "Zp?GGC@g??_CC???_@??@??C??A??G?O???????G???_??@E?????@????K?",
+      "violation": 1.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1880,
+      "found": true,
+      "cost": 30.042,
+      "graph6": "Q{aAAA?_@?C?G?o?G?@??O?@???",
+      "violation": 1.0,
+      "heuristic": "alns"
+    },
+    {
+      "id": 1891,
+      "found": true,
+      "cost": 1.015,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 0.5,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2041,
+      "found": true,
+      "cost": 1.034,
+      "graph6": "Q{aAAA?_@?C?G?o?G?@??O?@???",
+      "violation": 0.25,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2051,
+      "found": true,
+      "cost": 1.018,
+      "graph6": "Q{aAAA?_@?C?G?o?G?@??O?@???",
+      "violation": 0.25,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2117,
+      "found": true,
+      "cost": 0.716,
+      "graph6": "Q{aAAA?_@?C?G?o?G?@??O?@???",
+      "violation": 4.201,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2120,
+      "found": true,
+      "cost": 0.663,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 0.5,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2121,
+      "found": true,
+      "cost": 0.695,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 1.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 4247,
+      "found": true,
+      "cost": 0.004,
+      "graph6": "A_",
+      "violation": 4.0,
+      "heuristic": "atlas_probe"
+    },
+    {
+      "id": 4668,
+      "found": true,
+      "cost": 0.186,
+      "graph6": "OhEC@?_G?_A?C?A?@??O?",
+      "violation": 0.772429,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 4712,
+      "found": true,
+      "cost": 0.005,
+      "graph6": "A_",
+      "violation": 1.0,
+      "heuristic": "atlas_probe"
+    },
+    {
+      "id": 5952,
+      "found": true,
+      "cost": 1.161,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 2.0,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 5994,
+      "found": true,
+      "cost": 0.256,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 0.201,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 5996,
+      "found": true,
+      "cost": 0.254,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 0.601,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 5998,
+      "found": true,
+      "cost": 0.267,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 2.201,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6000,
+      "found": true,
+      "cost": 0.266,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 0.201,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6179,
+      "found": true,
+      "cost": 0.024,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 0.397436,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6180,
+      "found": true,
+      "cost": 2.873,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 0.118203,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 6181,
+      "found": true,
+      "cost": 0.046,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 1.298759,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6182,
+      "found": true,
+      "cost": 0.029,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 0.231649,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6267,
+      "found": true,
+      "cost": 0.047,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 4.012158,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6268,
+      "found": true,
+      "cost": 0.048,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 0.265957,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6269,
+      "found": true,
+      "cost": 0.044,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 2.527315,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6272,
+      "found": true,
+      "cost": 0.033,
+      "graph6": "A_",
+      "violation": 0.6,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6278,
+      "found": true,
+      "cost": 0.047,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 0.252324,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6352,
+      "found": true,
+      "cost": 0.028,
+      "graph6": "A_",
+      "violation": 0.333333,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6574,
+      "found": true,
+      "cost": 1.241,
+      "graph6": "R?CWkcZ_OfOyW?gTj_OKWFCHGacyjO",
+      "violation": 1.0,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 6582,
+      "found": true,
+      "cost": 39.898,
+      "graph6": "Z???????G@_VCC?OC??@w?NT?????G@woG{X@?????A??E????a?A?COC???",
+      "violation": 1.0,
+      "heuristic": "alns"
+    },
+    {
+      "id": 6903,
+      "found": true,
+      "cost": 0.261,
+      "graph6": "Z???????G@_VCC?OC??@w?NT?????G@woG{X@?????A??E????a?A?COC???",
+      "violation": 1.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 688,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "g~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+      "violation": -0.359477,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 713,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "g~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+      "violation": -0.109157,
+      "heuristic": "distance_mode"
+    },
+    {
+      "id": 737,
+      "found": true,
+      "cost": 1.189,
+      "graph6": "W~~~~~~~w?_@?@??_?G?@??K??w?@w?@{??|??Nw?@~_?F~",
+      "violation": 0.088611,
+      "heuristic": "alns"
+    },
+    {
+      "id": 1021,
+      "found": true,
+      "cost": 5.34,
+      "graph6": "{rGWOKA?WP?b?A?@_@O?JG_gP@WP?OG_K??A???W??@???B?_aI?OPD_???O???B_??_H??@?[?O??Q?G??KA???A?O???W????@?????B?___?A?OOO?@_@??O?O?G?A?BG???__GO??@@?W????CCO????AAK?A????A??O????W?OO?O?@??__?_?B?????_?A?????O?@o??C??O?Q???_?A?B??G????AG??O????CW??????C?O??????A?M?a??_??GAOCO?C??@?W????????@?????????B",
+      "violation": 0.5,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 1337,
+      "found": true,
+      "cost": 0.038,
+      "graph6": "{rGWOKA?WP?b?A?@_@O?JG_gP@WP?OG_K??A???W??@???B?_aI?OPD_???O???B_??_H??@?[?O??Q?G??KA???A?O???W????@?????B?___?A?OOO?@_@??O?O?G?A?BG???__GO??@@?W????CCO????AAK?A????A??O????W?OO?O?@??__?_?B?????_?A?????O?@o??C??O?Q???_?A?B??G????AG??O????CW??????C?O??????A?M?a??_??GAOCO?C??@?W????????@?????????B",
+      "violation": 0.022222,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1591,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}~~~~~~~~~~~~",
+      "violation": -0.625,
+      "heuristic": "distance_mode"
+    },
+    {
+      "id": 1729,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "Z~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~w",
+      "violation": -0.64,
+      "heuristic": "population_tournament"
+    },
+    {
+      "id": 1793,
+      "found": true,
+      "cost": 1.021,
+      "graph6": "W~~~~~~~w?_@?@??_?G?@??K??w?@w?@{??|??Nw?@~_?F~",
+      "violation": 0.060706,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1892,
+      "found": true,
+      "cost": 1.015,
+      "graph6": "KQXa?C@O??_@",
+      "violation": 1.0,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1917,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[saCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????",
+      "violation": -0.630769,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 1919,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[saCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????",
+      "violation": -0.716783,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2129,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "]saCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????_???A?????",
+      "violation": -0.630769,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 2131,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "hsaCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????_???A????C????C????A?????_????C?????O?????_?????_?????O?????C??????_??????",
+      "violation": -0.716783,
+      "heuristic": "distance_mode"
+    },
+    {
+      "id": 2252,
+      "found": true,
+      "cost": 8.018,
+      "graph6": "S~??GC@C@?O?O??O??G????CG?FOA??A_",
+      "violation": 0.086459,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 2882,
+      "found": true,
+      "cost": 48.351,
+      "graph6": "Zh@GGC@?G?_??@??_?G?@??C??G??G??C??@???G???_??A???@?B????_??",
+      "violation": 0.166667,
+      "heuristic": "alns"
+    },
+    {
+      "id": 3144,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~z~~~~",
+      "violation": -7.777778,
+      "heuristic": "population_tournament"
+    },
+    {
+      "id": 3157,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "bsaCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????_???A????C????C????A?????_????C??????",
+      "violation": -27.333333,
+      "heuristic": "population_tournament"
+    },
+    {
+      "id": 3191,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[saCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????",
+      "violation": -9.111111,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 3193,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "[saCCA?_C?O?_?_?O?C??_?A??C??C??A???_??C???O???_???_???O???C????",
+      "violation": -27.333333,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 3368,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "Bw",
+      "violation": -1.028695,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 3384,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "A_",
+      "violation": -1.028695,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 3550,
+      "found": true,
+      "cost": 0.133,
+      "graph6": "W~~~~~~~w?_@?@??_?G?@??K??w?@w?@{??|??Nw?@~_?F~",
+      "violation": 91.314183,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 3961,
+      "found": true,
+      "cost": 3.104,
+      "graph6": "krh\\Qn~iijtUTZilIl\\TiTYn~~w????????B???O??@_??A???B???D???@W???j???Ak???TO???TW???ig???Ij???DSO???TP_??Aii?G?Amj???DTT???@TTW???iii?G?Amik???IqijTig???DTiW???C",
+      "violation": 0.090048,
+      "heuristic": "alns"
+    },
+    {
+      "id": 3979,
+      "found": true,
+      "cost": 1.035,
+      "graph6": "W~~~~~~~w?_@?@??_?G?@??K??w?@w?@{??|??Nw?@~_?F~",
+      "violation": 1.37179,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 4288,
+      "found": true,
+      "cost": 2.4,
+      "graph6": "Wq`CAA?OC?G?_?O?O?A??_?@??C??A??A???O??C???G???",
+      "violation": 0.024643,
+      "heuristic": "greedy_extremes"
+    },
+    {
+      "id": 5381,
+      "found": true,
+      "cost": 0.014,
+      "graph6": "A_",
+      "violation": 0.478469,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 5421,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "A_",
+      "violation": -0.984531,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 5968,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "D~{",
+      "violation": -0.625736,
+      "heuristic": "distance_mode"
+    },
+    {
+      "id": 5983,
+      "found": true,
+      "cost": 0.154,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.039702,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6011,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "D~{",
+      "violation": -0.382609,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 6013,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "D~{",
+      "violation": -0.032615,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 6020,
+      "found": true,
+      "cost": 0.024,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.039702,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6124,
+      "found": true,
+      "cost": 0.062,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 5.284746,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6270,
+      "found": true,
+      "cost": 0.047,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 8.052733,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6351,
+      "found": true,
+      "cost": 0.052,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 5.678489,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6466,
+      "found": true,
+      "cost": 1.052,
+      "graph6": "\\?????@???_B?F@?_Bo?`?Fg?]gC|W@|[G]n?Ao??@_A?@????AO???_?_?@???@_?@??",
+      "violation": 0.065948,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 6472,
+      "found": true,
+      "cost": 0.026,
+      "graph6": "\\?????@???_B?F@?_Bo?`?Fg?]gC|W@|[G]n?Ao??@_A?@????AO???_?_?@???@_?@??",
+      "violation": 0.036577,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 6617,
+      "found": true,
+      "cost": 0.797,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.008146,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7205,
+      "found": true,
+      "cost": 0.035,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 619.769231,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7206,
+      "found": true,
+      "cost": 0.027,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 1111.133333,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7212,
+      "found": true,
+      "cost": 0.026,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 855.444444,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7213,
+      "found": true,
+      "cost": 0.026,
+      "graph6": "Y@Gh[?@joo@@AJAZeCP_@Jc?mOI??H_@_C?@?_AABAC@@xA?@C?@?CG_",
+      "violation": 843.666667,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7565,
+      "found": true,
+      "cost": 0.027,
+      "graph6": "\\?????@???_B?F@?_Bo?`?Fg?]gC|W@|[G]n?Ao??@_A?@????AO???_?_?@???@_?@??",
+      "violation": 1.410607,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7566,
+      "found": true,
+      "cost": 0.027,
+      "graph6": "\\?????@???_B?F@?_Bo?`?Fg?]gC|W@|[G]n?Ao??@_A?@????AO???_?_?@???@_?@??",
+      "violation": 2.650566,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7694,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "A_",
+      "violation": -0.651997,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7695,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "A_",
+      "violation": -0.697028,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7703,
+      "found": true,
+      "cost": 19.476,
+      "graph6": "Ie?g_C@AG",
+      "violation": 0.001319,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 7711,
+      "found": true,
+      "cost": 0.025,
+      "graph6": "Ie?g_C@AG",
+      "violation": 0.309851,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7712,
+      "found": true,
+      "cost": 3.542,
+      "graph6": "O?aK[]Nb{^e?G@b}G?I?D",
+      "violation": 0.121821,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 7713,
+      "found": true,
+      "cost": 0.025,
+      "graph6": "O?aK[]Nb{^e?G@b}G?I?D",
+      "violation": 0.445734,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7718,
+      "found": true,
+      "cost": 0.026,
+      "graph6": "O?aK[]Nb{^e?G@b}G?I?D",
+      "violation": 0.774798,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7719,
+      "found": true,
+      "cost": 0.024,
+      "graph6": "O?aK[]Nb{^e?G@b}G?I?D",
+      "violation": 0.99204,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7732,
+      "found": true,
+      "cost": 0.056,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 8.06405,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7734,
+      "found": true,
+      "cost": 1.35,
+      "graph6": "p@_pg?DqCO_??@L_EoHkN\\c\\@oKOo?O?C@?????KOwCFoNGLa]@??G?????KOqCOaE?aDGOLC@kBoKPkBpkCA??o@L_]D_oB?G?SPJ?TB?ne]bet?OOGC@EwNCoYwH??_?_a]@aEB_???o`_?O?AG[OAC_W?H?@?OK?MGB?A?C_CC???E?SOD??qW???@?__??G?O",
+      "violation": 0.049429,
+      "heuristic": "hill_climbing"
+    },
+    {
+      "id": 7743,
+      "found": true,
+      "cost": 0.618,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.524493,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7753,
+      "found": true,
+      "cost": 0.253,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.111439,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7773,
+      "found": true,
+      "cost": 0.282,
+      "graph6": "NJ\\zz|~?G?_?_@?A??g",
+      "violation": 0.524493,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7811,
+      "found": true,
+      "cost": 0.083,
+      "graph6": "n`rM]^N?_G_??@?F????@rw?AQ?C`GKoK@??BA?U^?O??g@G@O@?EQ?@??AE^IO[Ac@sG?XO@E^KOO__K??C?AK@??cBoQGGOAw?X{@@EO??`??G??l??Gx{DPAO_C_M?O_?c@rAECATFEWOX_??@?G?@?OA@_?G??[gGGK?????C_??@??C??",
+      "violation": 1.042879,
+      "heuristic": "seed_probe"
+    },
+    {
+      "id": 7813,
+      "found": true,
+      "cost": 0.029,
+      "graph6": "Ie?g_C@AG",
+      "violation": 0.382963,
+      "heuristic": "seed_probe"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "n_conjectures": 4,
+  "n_found": 0,
+  "total_cost": 480.0,
+  "total_elapsed": 33.91,
+  "details": [
+    {
+      "id": 688,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "b~~~~~~~w?_@?@????G???????G??G??C??@???W??B_??N???^???^_??Nw??B~???^{?B????@??????????O?@??A??O??_?C?",
+      "violation": -0.004456,
+      "heuristic": "numeric_gradient"
+    },
+    {
+      "id": 1917,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "HpO?i?A",
+      "violation": -0.115594,
+      "heuristic": "targeted_walk"
+    },
+    {
+      "id": 2129,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "JKKc?CO?_C?",
+      "violation": -0.105578,
+      "heuristic": "alns"
+    },
+    {
+      "id": 3191,
+      "found": false,
+      "cost": 120.0,
+      "graph6": "J_K_G?@CIA?",
+      "violation": -2.445818,
+      "heuristic": "population_tournament"
+    }
+  ]
+}
